@@ -35,5 +35,12 @@ kill -USR1 1
 #
 swapon -a 2> /dev/null
 
+ubiattach /dev/ubi_ctrl -m 5
+ubiattach /dev/ubi_ctrl -m 6
+
+mount -t ubifs ubi1_0 /rbctrl
+mount -t ubifs ubi2_0 /update
+
+
 : exit 0
 
