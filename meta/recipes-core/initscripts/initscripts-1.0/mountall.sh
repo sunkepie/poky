@@ -41,6 +41,7 @@ ubiattach /dev/ubi_ctrl -m 6
 mount -t ubifs ubi1_0 /rbctrl
 mount -t ubifs ubi2_0 /update
 
+/usr/sbin/readhardware &
 
 : exit 0
 
