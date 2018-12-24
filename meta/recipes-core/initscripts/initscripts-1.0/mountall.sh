@@ -41,7 +41,24 @@ ubiattach /dev/ubi_ctrl -m 6
 mount -t ubifs ubi1_0 /rbctrl
 mount -t ubifs ubi2_0 /update
 
+
+if grep -qs '/rbctrl' /proc/mounts; then
+    	echo "rbctrl mounted."
+else 
+	mount -t tmpfs tmpfs /rbctrl 
+fi
+
+if grep -qs '/update' /proc/mounts; then
+        echo "update mounted."
+else
+        mount -t tmpfs tmpfs /update
+fi
+
+
 /usr/sbin/readhardware &
+
+
+
 
 : exit 0
 
