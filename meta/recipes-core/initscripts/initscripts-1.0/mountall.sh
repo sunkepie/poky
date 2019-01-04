@@ -54,10 +54,12 @@ else
         mount -t tmpfs tmpfs /update
 fi
 
-
+mount -t tmpfs tmpfs /tmp 
 /usr/sbin/readhardware &
 
-
+if [ -e /dev/sda1 ] ; then  
+	mount /dev/sda1 /mnt/udisk
+fi
 
 
 : exit 0
