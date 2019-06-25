@@ -48,6 +48,13 @@ else
 	mount -t tmpfs tmpfs /rbctrl 
 fi
 
+if [ -f /rbctrl/conf/stupid-ftpd.conf ]; then
+        /usr/sbin/stupid-ftpd -f /rbctrl/conf/stupid-ftpd.conf &
+else
+        /usr/sbin/stupid-ftpd &
+fi
+
+
 if grep -qs '/update' /proc/mounts; then
         echo "update mounted."
 else
