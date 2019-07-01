@@ -35,12 +35,19 @@ kill -USR1 1
 #
 swapon -a 2> /dev/null
 
-ubiattach /dev/ubi_ctrl -m 5
-ubiattach /dev/ubi_ctrl -m 6
 
-mount -t ubifs ubi1_0 /rbctrl
-mount -t ubifs ubi2_0 /update
+emmc=`cat /proc/cmdline | grep mmcblk0`
+if [ ! -z ${emmc} ];
+then
+	mount -t ext4 /dev/mmcblk0p3 /rbctrl
 
+	mount -t ext4 /dev/mmcblk0p4 /update
+else
+	ubiattach /dev/ubi_ctrl -m 5
+	ubiattach /dev/ubi_ctrl -m 6
+	mount -t ubifs ubi1_0 /rbctrl
+	mount -t ubifs ubi2_0 /update
+fi
 
 if grep -qs '/rbctrl' /proc/mounts; then
     	echo "rbctrl mounted."
