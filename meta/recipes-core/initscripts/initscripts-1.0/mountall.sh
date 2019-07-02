@@ -37,7 +37,7 @@ swapon -a 2> /dev/null
 
 
 emmc=`cat /proc/cmdline | grep mmcblk0`
-if [ ! -z ${emmc} ];
+if [ ! -z "${emmc}" ]
 then
 	mount -t ext4 /dev/mmcblk0p3 /rbctrl
 
