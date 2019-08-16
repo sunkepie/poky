@@ -18,5 +18,9 @@ EXTRA_OEMAKE = "PREFIX=${prefix} CC='${CC}' DESTDIR=${D} LIBDIR=${libdir} INCLUD
 do_install() {
 	oe_runmake install
 }
+FILES_${PN} += "${libdir}/*.so"
+FILES_SOLIBSDEV = ""
+INSANE_SKIP_${PN} += "dev-so"
 
+ 
 BBCLASSEXTEND += "native nativesdk"
