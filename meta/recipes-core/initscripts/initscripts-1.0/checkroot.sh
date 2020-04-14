@@ -20,8 +20,8 @@ test "$SULOGIN" = yes && sulogin -t 30 $CONSOLE
 # Read /etc/fstab.
 #
 exec 9< /etc/fstab
-rootmode=ro
-rootopts=ro
+rootmode=rw
+rootopts=rw
 rootcheck=$ENABLE_ROOTFS_FSCK
 swap_on_md=no
 devfs=
