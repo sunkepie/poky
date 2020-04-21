@@ -7,6 +7,7 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=17f20574c0b154d12236d5fbe964f549"
 
 PR = "r1"
+SRCREV = "${AUTOREV}"
 
 SRC_URI = "git://github.com/sunkepie/libevent.git;branch=master;"
 
